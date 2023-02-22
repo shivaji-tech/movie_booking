@@ -1,1 +1,1 @@
-# movie_booking
+# movie_bookings
