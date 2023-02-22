@@ -1,0 +1,18 @@
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.card {
+    height: 85%;
+    width: 85%;
+    background-color: #eef8fe;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 25px;
+    padding: 30px;
+    overflow:auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
