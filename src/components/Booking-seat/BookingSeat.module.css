@@ -1,0 +1,71 @@
+.seats {
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    cursor: pointer;
+    color: #545454;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 11px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 11%), 0 2px 4px 0 rgb(0 0 0 / 14%);
+  }
+
+  .seatBlocked {
+    cursor: default;
+    color: #f2f2f2 !important;
+    box-shadow: none;
+  }
+  .seatBooked {
+    background: rgba(138, 138, 138, 0.418);
+    cursor: default;
+  }
+  .seatSelected {
+    color: #fff !important;
+    background: rgb(53 212 6);
+  }
+
+  .seatsHolder {
+    margin: 10px;
+  }
+
+  .colName {
+    color: #545454;
+    font-weight: 700;
+    margin-right: 20px;
+  }
+
+  .seatCard {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .screenView {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .bookingSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .bookBtn {
+    border: 1px solid #999;
+    color: #FFF;
+    padding: 4px;
+    border-radius: 4px;
+    width: 100%;
+    min-width: 100px;
+    background-color: #f84464;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+  }
