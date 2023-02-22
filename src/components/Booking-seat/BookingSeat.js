@@ -115,6 +115,7 @@ const BookingSeat = (props) => {
                 setTimeout(() => {
                     navigate('/');
                 }, 2000);
+                setSelectedSeats([]);
             },
             err => {
 
