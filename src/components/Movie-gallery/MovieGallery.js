@@ -8,30 +8,12 @@ import TheatreGallery from "../Theatre-gallery/TheatreGallery";
 import { useNavigate } from "react-router-dom";
 
 const MovieGallery = (props) => {
-    console.log(props)
     const movieList= props?.movieList
     const [showTheatreView, setShowTheatreView] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState({});
     const navigate = useNavigate();
 
-//     useEffect(() => {
-//         getTheatreListFromApi();
-//     }, []);
-
-//    const getTheatreListFromApi = () => {
-//     const payload = {user_mail_id: 'yshivaji321@gmail.com'};
-//     getTheatreDetails(payload).then(
-//         res => {
-//             console.log(res);
-//             const data = res?.data;
-//             setMovieList(data?.movies || []);
-//         },
-//         err => console.log(err)
-//     )
-//     }
-
     const handleMovieSelect = (movieDetails) => {
-        console.log(movieDetails)
         setSelectedMovie(movieDetails);
         setShowTheatreView(true);
         navigate('/movie', {state: movieDetails})

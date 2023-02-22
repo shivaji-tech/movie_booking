@@ -10,7 +10,6 @@ const TheatreGallery = (props) => {
     const selectedMovieDetails = dataState?.state;
     const theatreList = props?.theatreList;
     const [filteredTheatre, setFilteredTheatre] = useState([]);
-    console.log(selectedMovieDetails, theatreList);
 
     useEffect(() => {
         let tempData = [];
@@ -36,7 +35,6 @@ const TheatreGallery = (props) => {
             }
             item.showTimings = showTiming;
         });
-        console.log(tempData)
         setFilteredTheatre(tempData);
     }, [selectedMovieDetails, theatreList]);
 

@@ -24,7 +24,6 @@ const App = (props) => {
     const payload = {user_mail_id: 'yshivaji321@gmail.com'};
     getTheatreDetails(payload).then(
         res => {
-            console.log(res);
             const data = res?.data;
             setMovieList(data?.movies || []);
             setTheatreList(data?.theatre || []);

@@ -13,8 +13,6 @@ const BookingSeat = (props) => {
     const [seatDetails, setSeatDetails] = useState(seats);
     const [selectedSeats, setSelectedSeats] = useState('');
     const showDetails = dataState?.state;
-    const [showToast, setShowToast] = useState(false);
-    console.log(showDetails)
 
     useEffect(() => {
         if (!seats) {
@@ -30,7 +28,6 @@ const BookingSeat = (props) => {
         if (dd < 10) dd = '0' + dd;
         if (mm < 10) mm = '0' + mm;
         const formattedToday = dd + '/' + mm + '/' + yyyy;
-        console.log(formattedToday)
         return formattedToday
     }
 
@@ -62,14 +59,11 @@ const BookingSeat = (props) => {
 
     const RenderSeats = () => {
         let seatArray = [];
-        console.log(seatDetails)
-        console.log(seatDetails)
         for (let key in seatDetails) {
             let colValue = seatDetails[key].map((seatValue, rowIndex) => (
                 <span key={`${key}.${rowIndex}`} className={styles.seatsHolder}>
-                    {rowIndex === 0 && <span className={styles.colName}>{key}</span>}
                     <span className={getClassNameForSeats(seatValue)} onClick={() => onSeatClick(seatValue, rowIndex, key)}>
-                        {rowIndex + 1}
+                        {(rowIndex +1) + 1 * key}
                     </span>
                     {seatDetails && rowIndex === seatDetails[key].length - 1 && <><br /><br /></>}
                 </span>
@@ -87,10 +81,8 @@ const BookingSeat = (props) => {
                 return;
             } else if (seatValue === 0) {
                 seatDetails[key][rowIndex] = 2;
-                let updatedVal = [...selectedSeats, `${key}${rowIndex + 1}`];
-                console.log(updatedVal)
+                let updatedVal = [...selectedSeats, Number(key) + Number(rowIndex + 1)];
                 setSelectedSeats(updatedVal);
-                // selectedSeats.push(`${key}${rowIndex+1}`);
             } else {
                 seatDetails[key][rowIndex] = 0;
                 let updatedVal = [...selectedSeats];
@@ -101,7 +93,6 @@ const BookingSeat = (props) => {
         }
         setSeatDetails({ ...seatDetails });
     }
-    console.log(selectedSeats)
 
     const handleTicketBooking = () => {
         bookTicketApi();
@@ -116,14 +107,14 @@ const BookingSeat = (props) => {
             date: formatDate(),
             user_mail_id: 'yshivaji321@gmail.com'
         }
-        console.log(payload);
         bookTicket(payload).then(
             res => {
-                console.log(res);
                 toast.success('Ticket Booked Successfully!', {
                     position: toast.POSITION.TOP_RIGHT
                 });
-                navigate('');
+                setTimeout(() => {
+                    navigate('/');
+                }, 2000);
             },
             err => {
 
